@@ -1,20 +1,52 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet} from 'react-native';
+import HomeScreen from "./screens/HomeScreen";
+import ChatScreen from './screens/ChatScreen';
+import MessagesScreen from './screens/MessageScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import GlobalState from './context';
+
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GlobalState>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {/* all the screens here */}
+          <Stack.Screen
+            name='HomeScreen'
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='ChatScreen'
+            component={ChatScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='MessageScreen'
+            component={MessagesScreen}
+            options={{ title: 'Messages' }} // Example: Set custom title for MessageScreen
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+      {/* StatusBar */}
+      <StatusBar style='auto' />
+    </GlobalState>
+
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
