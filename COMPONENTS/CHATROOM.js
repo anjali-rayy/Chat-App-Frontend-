@@ -3,11 +3,15 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 
 export default function CHATROOM({ item }) {
+  /* Get navigation object from the navigation hook */
   const navigation = useNavigation();
 
+  /* Log the last message of the item */
   console.log(item.messages[item.messages.length - 1]);
 
+  /* Function to navigate to the message screen */
   function handleNavigateToMessageScreen() {
+    /* Navigate to 'MessageScreen' with relevant data*/
       navigation.navigate('MessageScreen', {
           currentGroupName: item.currentGroupName,
           currentGroupID: item.id,
@@ -15,6 +19,7 @@ export default function CHATROOM({ item }) {
   }
 
   return (
+    /* Pressable container for the chat item*/
       <Pressable style={styles.chat} onPress={handleNavigateToMessageScreen}>
           <View style={styles.circle}>
               <FontAwesome name='group' size={24} color={"black"} />

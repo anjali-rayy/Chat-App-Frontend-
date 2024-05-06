@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, StatusBar, View, TextInput, Keyboard } from "react-native";
+import { Alert, Modal, StyleSheet, Text, Pressable, View, TextInput, Keyboard } from "react-native";
 import { GlobalContext } from "../context";
 import { socket } from "../utils";
 
@@ -16,12 +16,12 @@ const NewGroupModal = () => {
   
     /* Function to handle creating a new group */
     function handleCreateNewRoom() {
-      console.log(currentGroupName);  /* Logging the current group name */
-      socket.emit("createNewGroup", currentGroupName); /* Emitting socket event to create a new group */
+      console.log(currentGroupName);  // Logging the current group name 
+      socket.emit("createNewGroup", currentGroupName); // Emitting socket event to create a new group 
 
-      setModalVisible(false);   /* Closing the modal */
-      setCurrentGroupName("");   /* Clearing the current group name */
-      Keyboard.dismiss();     /* Dismissing the keyboard */
+      setModalVisible(false);   // Closing the modal 
+      setCurrentGroupName("");   // Clearing the current group name 
+      Keyboard.dismiss();     // Dismissing the keyboard 
     }
   
     return (

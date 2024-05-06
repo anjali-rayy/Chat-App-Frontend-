@@ -48,7 +48,7 @@ export default function ChatScreen({ navigation }) {
                     <FlatList
                     data={allChatRooms}
                     renderItem={({ item }) => <CHATROOM item={item} />}
-                    keyExtractor={(item) => item.id.toString()}     /*Ensure id is converted to string */
+                    keyExtractor={(item) => item.id.toString()}     //Ensure id is converted to string 
                 />
                 
                 ) : null}

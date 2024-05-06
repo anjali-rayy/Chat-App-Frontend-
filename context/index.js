@@ -1,4 +1,4 @@
-import { createContext, useState} from "react";
+import { createContext, useState } from "react";
 
 
 export const GlobalContext = createContext(null);
@@ -17,8 +17,18 @@ function GlobalState({ children }) {
     const [currentChatMessage, setCurrentChatMessage] = useState('')
 
     return (
-         <GlobalContext.Provider
-            value = {{showLoginView, setShowLoginView, currentUserName, setCurrentUserName, currentUser, setCurrentUser, allUsers, setAllUsers, allChatRooms, setAllChatRooms, modalVisible, setModalVisible, currentGroupName, setCurrentGroupName, allChatMessages, setAllChatMessages, currentChatMessage, setCurrentChatMessage}}>{children}</GlobalContext.Provider>
+        <GlobalContext.Provider
+            value={{
+                showLoginView, setShowLoginView,
+                currentUserName, setCurrentUserName,
+                currentUser, setCurrentUser,
+                allUsers, setAllUsers,
+                allChatRooms, setAllChatRooms,
+                modalVisible, setModalVisible,
+                currentGroupName, setCurrentGroupName,
+                allChatMessages, setAllChatMessages,
+                currentChatMessage, setCurrentChatMessage
+            }}>{children}</GlobalContext.Provider>
     );
 }
 
